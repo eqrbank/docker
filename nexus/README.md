@@ -17,6 +17,7 @@ docker run \
     --name nexus \
     --restart always \
     --publish 10080:8081 \
+    --env CONTEXT_PATH=/ \
     --volume /opt/nexus:/sonatype-work \
     --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nexus:latest
@@ -26,6 +27,8 @@ docker run \
 ```
 # 访问服务
 http://192.168.11.111:10080
+user:admin
+pass:admin123
 ```
 
 ## rm.sh

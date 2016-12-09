@@ -7,6 +7,7 @@ docker run \
     --name nexus \
     --restart always \
     --publish 10080:8081 \
+    --env CONTEXT_PATH=/ \
     --volume /opt/nexus:/sonatype-work \
     --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nexus:latest
