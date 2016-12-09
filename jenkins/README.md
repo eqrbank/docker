@@ -25,8 +25,11 @@ docker run \
 
 ## after run
 ```
-#查看初始化默认密码
+# 查看初始化默认密码
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+
+# 访问服务
+http://192.168.11.111:12080
 ```
 
 ## rm.sh

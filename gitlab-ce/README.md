@@ -30,7 +30,19 @@ docker run \
 ## after run
 ##### vim gitlab.rb
 ```
+# 编辑配置文件
+vim /opt/gitlab-ce/config/gitlab.rb
 
+# 编辑的内容
+external_url 'http://192.168.11.111:11080'
+gitlab_rails['gitlab_shell_ssh_port'] = 11022
+
+# 重启容器
+docker restart gitlab-ce
+
+# 访问服务
+http://192.168.11.111:11080
+user:root
 ```
 
 ## rm.sh
