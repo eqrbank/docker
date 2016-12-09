@@ -12,15 +12,23 @@ FROM jenkins:latest
 
 mkdir -p /opt/jenkins && chmod -R 777 /opt/jenkins
 
-docker run -d \
+docker run \
+    --detach \
     --name jenkins \
-    --restart=always \
-    -p 8080:8080 \
-    -p 50000:50000 \
-    -v /opt/jenkins:/var/jenkins_home \
-    -v /etc/localtime:/etc/localtime:ro \
+    --restart always \
+    --publish 12080:8080 \
+    --publish 50000:50000 \
+    --volume /opt/jenkins:/var/jenkins_home \
+    --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/jenkins:latest
 ```
+
+## after run
+```
+#查看初始化默认密码
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
 ## rm.sh
 ```
 #!/usr/bin/env bash

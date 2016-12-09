@@ -1,0 +1,50 @@
+## Official site
+https://hub.docker.com/r/gitlab/gitlab-ce
+
+## Dockerfile
+```
+FROM gitlab/gitlab-ce:latest
+```
+
+## run.sh
+```
+#!/usr/bin/env bash
+
+mkdir -p /opt/gitlab-ce && chmod -R 777 /opt/gitlab-ce
+
+docker run \
+    --detach \
+    --name gitlab-ce \
+    --restart always \
+    --hostname 192.168.11.111 \
+    --publish 11443:443 \
+    --publish 11080:11080 \
+    --publish 11022:22 \
+    --volume /opt/gitlab-ce/config:/etc/gitlab \
+    --volume /opt/gitlab-ce/logs:/var/log/gitlab \
+    --volume /opt/gitlab-ce/data:/var/opt/gitlab \
+    --volume /etc/localtime:/etc/localtime:ro \
+    registry.cn-hangzhou.aliyuncs.com/nichozuo/gitlab-ce:latest
+```
+
+## after run
+##### vim gitlab.rb
+```
+
+```
+
+## rm.sh
+```
+#!/usr/bin/env bash
+
+docker stop gitlab-ce && docker rm gitlab-ce
+```
+
+## update.sh
+```
+#!/usr/bin/env bash
+
+sh rm.sh
+docker rmi registry.cn-hangzhou.aliyuncs.com/nichozuo/gitlab-ce:latest
+sh run.sh
+```
