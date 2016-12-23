@@ -10,8 +10,9 @@ FROM richarvey/nginx-php-fpm:latest
 ```
 #!/usr/bin/env bash
 
-mkdir -p /opt/nginx-php/log/nginx
-mkdir -p /opt/nginx-php/html
+docker volume create --name nginx
+
+docker volume create --name nginx-log
 
 docker run \
     --detach \
@@ -19,8 +20,11 @@ docker run \
     --restart always \
     --publish 80:80 \
     --publish 443:443 \
-    -v /opt/nginx-php/log:/var/log \
-    -v /opt/nginx-php/html:/var/www/html \
+    --volume nginx-log:/var/log \
+    --volume nginx:/var/www/html \
+    --volume /etc/localtime:/etc/localtime:ro \
+    --link mysql:mysql \
+    --link redis:redis \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nginx-php:latest
 ```
 
@@ -47,7 +51,7 @@ docker restart nginx-php
 ```
 #!/usr/bin/env bash
 
-docker stop nginx-php && docker rm nginx-php
+docker rm -f nginx-php
 ```
 
 ## update.sh

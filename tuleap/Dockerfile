@@ -1,0 +1,1 @@
+FROM enalean/tuleap-aio:latest
