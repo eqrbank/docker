@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker rm -f mysql
+docker rm -f redis
