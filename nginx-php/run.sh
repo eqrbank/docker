@@ -13,6 +13,4 @@ docker run \
     --volume nginx-log:/var/log \
     --volume nginx:/var/www/html \
     --volume /etc/localtime:/etc/localtime:ro \
-    --link mysql:mysql \
-    --link redis:redis \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nginx-php:latest

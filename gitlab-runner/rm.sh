@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker stop gitlab-runner && docker rm gitlab-runner
+docker rm -vf gitlab-runner

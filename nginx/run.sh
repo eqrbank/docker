@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-docker volume create --name nginx
+docker volume create --name loveangel-web
 
 docker run \
     --detach \
-    --name nginx \
+    --name loveangel-web \
     --restart always \
-    --publish 80:80 \
-    --publish 443:443 \
-    --volume nginx:/usr/share/nginx/html/ \
+    --publish 8092:80 \
+    --publish 8093:443 \
+    --volume loveangel-web:/usr/share/nginx/html/ \
     --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nginx:latest
