@@ -16,7 +16,7 @@ COPY attach/settings-docker.xml /usr/share/maven/ref/
 
 ## add by nicho
 ### init tools
-RUN apt install git openssh vim unzip -y
+RUN apt-get install -y git openssh vim unzip
 ### init nexus
 RUN mkdir -p /root/.m2/repository/
 ADD attach/settings.xml /root/.m2/
