@@ -16,14 +16,14 @@ COPY attach/settings-docker.xml /usr/share/maven/ref/
 
 ## add by nicho
 ### init tools
-RUN apt-get install -y git openssh vim unzip
+#RUN apt-get install -y git openssh vim unzip
 ### init nexus
 RUN mkdir -p /root/.m2/repository/
 ADD attach/settings.xml /root/.m2/
 ### init git
 RUN mkdir -p /root/.ssh/
-RUN git config --global user.email "maven@eqrbank.com"
-RUN git config --global user.name "maven"
+#RUN git config --global user.email "maven@eqrbank.com"
+#RUN git config --global user.name "maven"
 
 VOLUME "$USER_HOME_DIR/.m2"
 
