@@ -11,15 +11,15 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
-COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
-COPY settings-docker.xml /usr/share/maven/ref/
+COPY attach/mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
+COPY attach/settings-docker.xml /usr/share/maven/ref/
 
 ## add by nicho
 ### init tools
 RUN apt install git openssh vim unzip -y
 ### init nexus
 RUN mkdir -p /root/.m2/repository/
-ADD settings.xml /root/.m2/
+ADD attach/settings.xml /root/.m2/
 ### init git
 RUN mkdir -p /root/.ssh/
 RUN git config --global user.email "maven@eqrbank.com"
