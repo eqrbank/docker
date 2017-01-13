@@ -10,7 +10,7 @@ FROM sonatype/nexus:latest
 ```
 #!/usr/bin/env bash
 
-mkdir -p /opt/nexus && chmod -R 777 /opt/nexus
+mkdir -p /mnt/nexus && chmod -R 777 /mnt/nexus
 
 docker run \
     --detach \
@@ -18,7 +18,7 @@ docker run \
     --restart always \
     --publish 10080:8081 \
     --env CONTEXT_PATH=/ \
-    --volume /opt/nexus:/sonatype-work \
+    --volume /mnt/nexus:/sonatype-work \
     --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nexus:latest
 ```

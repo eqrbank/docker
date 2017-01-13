@@ -2,4 +2,4 @@
 
 sh rm.sh
 docker rmi registry.cn-hangzhou.aliyuncs.com/nichozuo/gitlab-runner-maven:latest
-sh run.sh
+docker pull registry.cn-hangzhou.aliyuncs.com/nichozuo/gitlab-runner-maven:latest
