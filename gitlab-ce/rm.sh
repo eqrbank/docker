@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker stop gitlab-ce && docker rm gitlab-ce
+docker rm -f gitlab-ce

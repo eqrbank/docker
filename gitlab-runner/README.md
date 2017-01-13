@@ -22,8 +22,6 @@ docker run \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/gitlab-runner:latest
 ```
 
-## after run
-
 ## rm.sh
 ```
 #!/usr/bin/env bash

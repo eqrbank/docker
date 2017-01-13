@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p /opt/gitlab-ce && chmod -R 777 /opt/gitlab-ce
+mkdir -p /mnt/gitlab-ce && chmod -R 777 /mnt/gitlab-ce
 
 docker run \
     --detach \
@@ -10,8 +10,8 @@ docker run \
     --publish 11443:443 \
     --publish 11080:11080 \
     --publish 11022:22 \
-    --volume /opt/gitlab-ce/config:/etc/gitlab \
-    --volume /opt/gitlab-ce/logs:/var/log/gitlab \
-    --volume /opt/gitlab-ce/data:/var/opt/gitlab \
+    --volume /mnt/gitlab-ce/config:/etc/gitlab \
+    --volume /mnt/gitlab-ce/logs:/var/log/gitlab \
+    --volume /mnt/gitlab-ce/data:/var/opt/gitlab \
     --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/gitlab-ce:latest
