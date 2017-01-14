@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-
-docker volume create --name nginx
-
-docker volume create --name nginx-log
+#docker volume create --name nginx
+#docker volume create --name nginx-log
+mkdir -p /opt/nginx-php/html
+mkdir -p /opt/nginx-php/log
 
 docker run \
     --detach \
@@ -10,7 +10,7 @@ docker run \
     --restart always \
     --publish 80:80 \
     --publish 443:443 \
-    --volume nginx-log:/var/log \
-    --volume nginx:/var/www/html \
+    --volume /opt/nginx-php/log:/var/log \
+    --volume /opt/nginx-php/html:/var/www/html \
     --volume /etc/localtime:/etc/localtime:ro \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/nginx-php:latest
