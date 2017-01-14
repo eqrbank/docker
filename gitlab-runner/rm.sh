@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker rm -vf gitlab-runner
+docker rm -f gitlab-runner
