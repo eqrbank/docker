@@ -4,4 +4,6 @@ FROM java:openjdk-7-jre
 RUN mkdir -p /home/jar
 VOLUME /home/jar/
 
+EXPOSE 8080
+
 ENTRYPOINT ["java", "-jar", "/home/jar/app.jar"]
