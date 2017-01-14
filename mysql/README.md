@@ -10,6 +10,7 @@ FROM mysql:latest
 ```
 #!/usr/bin/env bash
 
+#docker volume create --name mysql
 mkdir -p /opt/mysql
 
 docker run \
@@ -18,7 +19,8 @@ docker run \
     --restart always \
     --publish 3306:3306 \
     --volume /opt/mysql:/var/lib/mysql \
-    --env MYSQL_ROOT_PASSWORD=123456 \
+    --volume /etc/localtime:/etc/localtime:ro \
+    --env MYSQL_ROOT_PASSWORD=m5f70YLQaZPL \
     registry.cn-hangzhou.aliyuncs.com/nichozuo/mysql:latest
 ```
 
