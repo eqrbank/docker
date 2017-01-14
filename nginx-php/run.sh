@@ -2,7 +2,7 @@
 #docker volume create --name nginx
 #docker volume create --name nginx-log
 mkdir -p /opt/nginx-php/html
-mkdir -p /opt/nginx-php/log
+mkdir -p /opt/nginx-php/log/nginx
 
 docker run \
     --detach \
